@@ -6,16 +6,14 @@ class MyArray
   end
 
   def max2
-    max2 = [init_arr[0], init_arr[1]]
-    init_arr.drop(2).each do |el|
-      p el
-      if el > max2[0]
-        max2[0], max2[1] = el, max2[0]
-      elsif el <= max2[0] && el > max2[1]
+    init_arr.drop(2).inject([init_arr[0], init_arr[1]]) do |max2, el|
+      if el <= max2[0] && el >= max2[1]
         max2[1] = el
+      elsif el >= max2[0]
+        max2[0] = el
       end
+      max2
     end
-    max2
   end
 
   def silly_max2
@@ -36,6 +34,7 @@ arr3 = MyArray.new([6,6,6,6,6])
 # p arr2.silly_max2
 p arr1.max2 #== [5, 5]
 p arr2.max2 #== [5, 4]
+p arr3.max2 #==
 # p arr1.my_uniq
 # p arr2.my_uniq
 # p arr3.my_uniq

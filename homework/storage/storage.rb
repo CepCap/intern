@@ -19,15 +19,19 @@ class Storage
     @hash[name]= attribute
   end
 
-  def total_quantity
+  def total_storage_quantity
     @hash.map do |el|
       el[1][:quantity]
     end.inject(&:+)
   end
 
-  def total_price
+  def total_storage_price
     @hash.map do |el|
-      el[1][:price]
+      total_price(el[0])
     end.inject(&:+)
+  end
+
+  def total_price(name)
+    @hash[name][:quantity] * @hash[name][:price]
   end
 end

@@ -32,8 +32,11 @@ class Interface
     @storage.hash.each do |name, attributes|
       puts name.to_s +
           '; price -->' + attributes[:price].to_s +
-          '; quantity -- >' + attributes[:quantity].to_s
+          '; quantity -->' + attributes[:quantity].to_s +
+          '; total price -->' + @storage.total_price(name).to_s
     end
+    puts 'Total storage quantity: ' + @storage.total_storage_quantity.to_s
+    puts 'Total storage price: ' + @storage.total_storage_price.to_s
   end
 
   def add

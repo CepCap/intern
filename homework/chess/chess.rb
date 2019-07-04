@@ -11,7 +11,7 @@ class Chess
   def board
     @board = [@corner + @letters.join + "\n"]
     @numbers.each do |num|
-      @row = @row.reverse if num.even?
+      @row.reverse!
       @board << num.to_s + @row + "\n"
     end
     @board

@@ -5,7 +5,7 @@ end
 def numbers_generator(file, amount)
   File.open(file, 'wb') do |f|
     amount.times do
-      f.print (rand(10 ** 3).to_s + ' ')
+      f.print (rand(10 ** 2).to_s + ' ')
     end
   end
 end
@@ -29,7 +29,7 @@ end
 p uniqate([6,6,6,6,6]) == [6]
 p uniqate([6,7,8,6,6]) == [6,7,8]
 filename = 'generated_numbers'
-numbers_generator(filename, 10*7)
+numbers_generator(filename, 10 ** 4)
 p has_dups?(filename)
 if has_dups?(filename)
   no_dups(filename)

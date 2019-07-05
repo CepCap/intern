@@ -19,19 +19,22 @@ def has_dups?(file)
 end
 
 def no_dups(file)
-  uniqate(File.read(file).split(' ')).each do |el|
-    File.open(file + '_no_dups', 'w+') do |f|
-      f.print el.to_s + ' '
-    end
+  File.open(file + '_no_dups', 'wb') do |f|
+    f.puts uniqate(File.read(file).split(' ')).join(' ')
   end
 end
 
+puts 'Uniqate tryout'
 p uniqate([6,6,6,6,6]) == [6]
 p uniqate([6,7,8,6,6]) == [6,7,8]
 filename = 'generated_numbers'
-numbers_generator(filename, 10 ** 4)
-p has_dups?(filename)
-if has_dups?(filename)
+puts 'Generating numbers...'
+numbers_generator(filename, 10 ** 7)
+puts 'Checking for dups'
+dups = p has_dups?(filename)
+if dups
+  puts 'Making no-dups copy'
   no_dups(filename)
 end
-p has_dups?("#{filename}_no_dups") == false
+puts 'Checking if "_no_dups" dont have dups'
+puts has_dups?("#{filename}_no_dups") == false

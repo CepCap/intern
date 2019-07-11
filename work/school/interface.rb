@@ -45,7 +45,7 @@ class Interface
     puts "Введите порядковый номер ученика: "
     puts "Чтобы посмотреть журнал введите '0'"
     input = gets.to_i
-    if input > school.students.length
+    while input > school.students.length
       puts "Неверное значение. Введите снова:"
       puts "Чтобы посмотреть журнал введите '0'"
       input = gets.to_i
@@ -147,7 +147,11 @@ class Interface
     subject_medians = show[:subject_medians]
     stat = check_status(show[:status], arg = gender)
     puts "\nУважаемый родитель!"
-    gender ==('male') ? puts("Ваш сын - #{stat}") : puts("Ваша дочь - #{stat}")
+    if gender ==('male')
+      puts("Ваш сын, #{name} - #{stat}")
+    else
+      puts("Ваша дочь, #{name} - #{stat}")
+    end
     subject_medians.each do |lesson, med|
       puts "Средняя оценка по предмету #{lesson}: #{med}"
     end

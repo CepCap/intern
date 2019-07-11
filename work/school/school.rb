@@ -51,7 +51,7 @@ class School
   def statistics_by_subject(subject)
     stat = { two: 0, three: 0, four: 0, five: 0 }
     @students.each do |id, student|
-      median = find_median(student[subject])
+      median = find_median(student[subject].map(&:to_i))
       stat[check_status(median)] += 1
     end
     stat

@@ -1,0 +1,3 @@
+/Users/cepcap/Desktop/books/The_Well-Grounded_Ru (1).pdf
+/Users/cepcap/Desktop/books/Programming Ruby 1.9, 3rd Edition.pdf
+/Users/cepcap/Desktop/books/Руби С. и др. - Rails 4. Гибкая разработка веб-приложений (Для профессионалов) - 2014.pdf
